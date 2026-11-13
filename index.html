@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f4ef">
+  <meta name="description" content="GENZWEAR — expressive everyday menswear for the next generation.">
+  <title>GENZWEAR — Wear your own rules</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f5f4ef;
+      --ink: #171815;
+      --muted: #73756d;
+      --lime: #d7ff3f;
+      --line: rgba(23, 24, 21, .15);
+      --display: "Space Grotesk", sans-serif;
+      --body: "DM Sans", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .announcement { padding: 10px 20px; background: var(--lime); text-align: center; font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .header { position: sticky; z-index: 5; top: 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 19px 6.2%; background: rgba(245, 244, 239, .94); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
+    .logo { font-family: var(--display); font-size: 25px; font-weight: 700; letter-spacing: -.09em; }
+    .logo span { color: #8cae00; }
+    .nav { display: flex; gap: 32px; align-items: center; }
+    .nav a, .header-cta { font-size: 12px; font-weight: 700; }
+    .nav a { transition: opacity .2s; }
+    .nav a:hover { opacity: .55; }
+    .header-cta { border: 1px solid var(--ink); padding: 11px 17px; border-radius: 2px; }
+    .menu-toggle { display: none; }
+    .hero { position: relative; min-height: min(690px, 77vw); display: grid; align-items: end; overflow: hidden; color: white; background: #222 url("https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=2200&q=85") center 42% / cover; }
+    .hero::before { position: absolute; inset: 0; content: ""; background: linear-gradient(90deg, rgba(0,0,0,.68), rgba(0,0,0,.04) 85%), linear-gradient(0deg, rgba(0,0,0,.35), transparent 55%); }
+    .hero-content { position: relative; max-width: 760px; padding: 8% 8% 7%; }
+    .eyebrow { font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .hero h1 { margin: 18px 0 15px; font: 700 clamp(58px, 9.5vw, 128px)/.87 var(--display); letter-spacing: -.09em; text-transform: uppercase; }
+    .hero p { max-width: 390px; margin: 22px 0 27px; color: rgba(255,255,255,.82); font-size: 15px; line-height: 1.65; }
+    .button { display: inline-flex; align-items: center; gap: 20px; padding: 15px 19px; background: var(--lime); color: var(--ink); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; transition: transform .2s, background .2s; }
+    .button:hover { transform: translateY(-3px); background: white; }
+    .button span { font-size: 18px; line-height: 10px; }
+    .ticker { overflow: hidden; padding: 14px 0; background: var(--ink); color: var(--lime); white-space: nowrap; }
+    .ticker-track { display: flex; justify-content: space-around; gap: 28px; font: 700 12px var(--display); letter-spacing: .13em; text-transform: uppercase; }
+    .ticker-track span::after { content: "✳"; margin-left: 28px; }
+    .section { padding: 94px 6.2%; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+    .section-heading h2 { margin: 8px 0 0; font: 700 clamp(34px, 5vw, 58px)/.98 var(--display); letter-spacing: -.07em; text-transform: uppercase; }
+    .section-heading p { max-width: 290px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+    .products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+    .product-image { position: relative; aspect-ratio:  .76; overflow: hidden; background: #e6e5df; }
+    .product-image img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .5s; }
+    .product:hover img { transform: scale(1.045); }
+    .tag { position: absolute; top: 12px; left: 12px; padding: 7px 9px; background: var(--lime); font-size: 9px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+    .product-info { display: flex; justify-content: space-between; gap: 10px; padding-top: 13px; font-size: 12px; font-weight: 700; }
+    .product-info span:last-child { white-space: nowrap; }
+    .product-type { margin-top: 5px; color: var(--muted); font-size: 11px; }
+    .statement { display: grid; grid-template-columns: 1fr 1fr; min-height: 470px; background: var(--lime); }
+    .statement-copy { align-self: center; padding: 12%; }
+    .statement-copy h2 { margin: 15px 0; font: 700 clamp(42px, 6vw, 76px)/.91 var(--display); letter-spacing: -.08em; text-transform: uppercase; }
+    .statement-copy p { max-width: 390px; margin: 20px 0 27px; font-size: 14px; line-height: 1.7; }
+    .statement .button { background: var(--ink); color: white; }
+    .statement-image { min-height: 350px; background: #444 url("https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1100&q=85") center 35% / cover; }
+    .categories { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
+    .category { position: relative; min-height: 350px; display: flex; align-items: end; overflow: hidden; background: #333 center / cover; color: white; }
+    .category::before { position: absolute; inset: 0; content: ""; background: linear-gradient(0deg, rgba(0,0,0,.7), transparent 65%); transition: background .2s; }
+    .category:hover::before { background: linear-gradient(0deg, rgba(0,0,0,.8), rgba(0,0,0,.08)); }
+    .category h3 { position: relative; margin: 0; padding: 24px; font: 700 30px var(--display); letter-spacing: -.05em; text-transform: uppercase; }
+    .category:nth-child(1) { background-image: url("https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80"); }
+    .category:nth-child(2) { background-image: url("https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80"); }
+    .category:nth-child(3) { background-image: url("https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=80"); }
+    .newsletter { padding: 75px 20px; background: #e8e7e0; text-align: center; }
+    .newsletter h2 { margin: 10px 0; font: 700 clamp(35px, 5vw, 58px) var(--display); letter-spacing: -.07em; text-transform: uppercase; }
+    .newsletter p { margin: 0 auto 23px; color: var(--muted); font-size: 13px; }
+    .signup { display: flex; max-width: 430px; margin: auto; }
+    .signup input { flex: 1; min-width: 0; padding: 14px; border: 1px solid var(--ink); border-right: 0; border-radius: 0; background: transparent; font: 12px var(--body); }
+    .signup button { padding: 0 18px; border: 1px solid var(--ink); background: var(--ink); color: white; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+    .footer { display: flex; align-items: center; justify-content: space-between; gap: 22px; padding: 28px 6.2%; background: var(--ink); color: white; }
+    .footer .logo { color: white; }
+    .footer p, .footer a { color: #aaa; font-size: 11px; }
+    .footer-links { display: flex; gap: 20px; }
+    @media (max-width: 760px) {
+      .header { padding: 16px 5%; }
+      .nav { gap: 16px; }
+      .nav a { font-size: 11px; }
+      .header-cta { display: none; }
+      .hero { min-height: 600px; background-position: 58% center; }
+      .hero-content { padding: 0 7% 13%; }
+      .section { padding: 68px 5%; }
+      .products { grid-template-columns: repeat(2, 1fr); gap: 25px 12px; }
+      .statement { grid-template-columns: 1fr; }
+      .statement-copy { padding: 12% 8%; }
+      .statement-image { min-height: 390px; }
+      .categories { grid-template-columns: 1fr; }
+      .category { min-height: 300px; }
+      .footer { flex-wrap: wrap; padding: 25px 5%; }
+    }
+    @media (max-width: 480px) {
+      .announcement { font-size: 9px; }
+      .nav { gap: 12px; }
+      .nav a { font-size: 10px; }
+      .logo { font-size: 22px; }
+      .hero { min-height: 550px; }
+      .section-heading { align-items: start; flex-direction: column; }
+      .section-heading p { max-width: 100%; }
+      .footer-links { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="announcement">New season, new energy — free shipping on orders over $75</div>
+  <header class="header">
+    <a class="logo" href="#home" aria-label="GENZWEAR home">GENZ<span>WEAR</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#new">New drops</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">Our vibe</a>
+    </nav>
+    <a class="header-cta" href="#new">Shop the drop ↗</a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">Not made to blend in · SS/25</div>
+        <h1>Wear your<br>own rules.</h1>
+        <p>Everyday fits for wherever life takes you. Easy silhouettes, big energy, zero permission needed.</p>
+        <a class="button" href="#new">Explore the drop <span>↗</span></a>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="GENZWEAR: made for your era">
+      <div class="ticker-track"><span>Made for your era</span><span>Own your energy</span><span>Good fits, no rules</span><span>Made for your era</span></div>
+    </div>
+
+    <section class="section" id="new">
+      <div class="section-heading">
+        <div><div class="eyebrow">The rotation starters</div><h2>Fresh out now.</h2></div>
+        <p>New-season essentials with a little extra attitude. Find your next everyday favorite.</p>
+      </div>
+      <div class="products" id="shop">
+        <a class="product" href="#newsletter"><div class="product-image"><span class="tag">Just dropped</span><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80" alt="Relaxed white graphic t-shirt" loading="lazy"></div><div class="product-info"><span>Everyday Box Tee</span><span>$32</span></div><div class="product-type">Relaxed fit · 4 colors</div></a>
+        <a class="product" href="#newsletter"><div class="product-image"><span class="tag">Bestseller</span><img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80" alt="Black streetwear jacket" loading="lazy"></div><div class="product-info"><span>Off-Duty Jacket</span><span>$78</span></div><div class="product-type">Roomy fit · Built for layers</div></a>
+        <a class="product" href="#newsletter"><div class="product-image"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=80" alt="Casual denim jeans" loading="lazy"></div><div class="product-info"><span>Loose Ends Denim</span><span>$64</span></div><div class="product-type">Baggy fit · Easy all day</div></a>
+        <a class="product" href="#newsletter"><div class="product-image"><span class="tag">Back in stock</span><img src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=700&q=80" alt="Modern casual streetwear outfit" loading="lazy"></div><div class="product-info"><span>Weekend Uniform</span><span>$48</span></div><div class="product-type">The one you live in</div></a>
+      </div>
+    </section>
+
+    <section class="statement" id="about">
+      <div class="statement-copy">
+        <div class="eyebrow">A little less ordinary</div>
+        <h2>For the plot.<br>For yourself.</h2>
+        <p>We make clothes for the version of you that doesn't need a reason. Thoughtful everyday pieces, built to be worn your way.</p>
+        <a class="button" href="#shop">Find your fit <span>↗</span></a>
+      </div>
+      <div class="statement-image" role="img" aria-label="A model wearing modern streetwear"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><div><div class="eyebrow">Pick your lane</div><h2>What’s your mood?</h2></div><p>Whatever the plan, there’s a fit for it. Tap into your next look.</p></div>
+      <div class="categories">
+        <a class="category" href="#shop"><h3>Tees & tops ↗</h3></a>
+        <a class="category" href="#shop"><h3>Outerwear ↗</h3></a>
+        <a class="category" href="#shop"><h3>Bottoms ↗</h3></a>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter">
+      <div class="eyebrow">The group chat, but better</div>
+      <h2>Stay in the loop.</h2>
+      <p>Get first dibs on new drops, exclusive offers and whatever’s next.</p>
+      <form class="signup" action="#" method="get"><label for="email" class="visually-hidden"></label><input id="email" type="email" placeholder="Your email address" aria-label="Your email address"><button type="submit">Count me in ↗</button></form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="logo" href="#home">GENZ<span>WEAR</span></a>
+    <p>Wear your own rules. © 2025 GENZWEAR.</p>
+    <div class="footer-links"><a href="mailto:hello@genzwear.in">Contact</a><a href="#about">Our vibe</a><a href="#home">Instagram ↗</a></div>
+  </footer>
+</body>
+</html>
