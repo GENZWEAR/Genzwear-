@@ -15,7 +15,11 @@
     <div class="topbar">NEW DROP: LUXE STREET / EDIT 02 / FREE SHIPPING FOR ORDERS ABOVE ₹3,999</div>
 
     <header class="site-header">
-      <a class="brand" href="#home" aria-label="GENZWEAR home">GENZ<span>WEAR</span></a>
+      <div class="brand-wrap">
+        <a class="brand" href="#home" aria-label="GENZWEAR home">GENZ<span>WEAR</span></a>
+        <!-- Replace with your real logo image if needed -->
+        <!-- <img src="assets/logo.png" alt="GENZWEAR logo" class="logo-image" /> -->
+      </div>
       <nav class="nav" aria-label="Main navigation">
         <a href="#new">New</a>
         <a href="#featured">Featured</a>
@@ -23,8 +27,8 @@
         <a href="#journal">Lookbook</a>
       </nav>
       <div class="header-actions">
-        <a href="#newsletter">Join us</a>
-        <a class="cta-btn" href="#shop">Shop now</a>
+        <a href="tel:+919876543210">Call us</a>
+        <a class="cta-btn" href="https://wa.me/919876543210" target="_blank" rel="noreferrer">WhatsApp</a>
       </div>
     </header>
 
@@ -50,6 +54,13 @@
           </div>
           <div class="floating-tag">The new uniform</div>
         </div>
+      </section>
+
+      <section class="contact-strip">
+        <div class="contact-item"><span>Phone</span><a href="tel:+919876543210">+91 98765 43210</a></div>
+        <div class="contact-item"><span>WhatsApp</span><a href="https://wa.me/919876543210" target="_blank" rel="noreferrer">Chat now</a></div>
+        <div class="contact-item"><span>Email</span><a href="mailto:hello@genzwear.in">hello@genzwear.in</a></div>
+        <div class="contact-item"><span>Store</span><a href="#footer-contact">123 Style Street, Ahmedabad, India</a></div>
       </section>
 
       <section class="brand-strip" aria-label="GENZWEAR style values">
@@ -111,10 +122,35 @@
       </section>
     </main>
 
-    <footer class="site-footer">
-      <a class="brand" href="#home">GENZ<span>WEAR</span></a>
-      <div class="footer-links"><a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="mailto:hello@genzwear.in">Contact</a><a href="#new">Shop</a></div>
-      <p>© 2026 GENZWEAR</p>
+    <footer class="site-footer" id="footer-contact">
+      <div class="footer-brand-block">
+        <a class="brand" href="#home">GENZ<span>WEAR</span></a>
+        <p class="footer-tag">Streetwear built for the next era.</p>
+      </div>
+
+      <div class="footer-links-grid">
+        <div>
+          <h4>Call</h4>
+          <a href="tel:+919876543210">+91 98765 43210</a>
+        </div>
+        <div>
+          <h4>WhatsApp</h4>
+          <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer">Chat now</a>
+        </div>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:hello@genzwear.in">hello@genzwear.in</a>
+        </div>
+        <div>
+          <h4>Address</h4>
+          <p>123 Style Street, Ahmedabad, India</p>
+        </div>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram ↗</a>
+        <a href="#new">Shop</a>
+      </div>
     </footer>
   </body>
 </html>
